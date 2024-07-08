@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('parts_location', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('location_id');
+            $table->unsignedBigInteger('part_id');
             $table->foreign('location_id')->references('id')->on('locations');
             $table->foreign('part_id')->references('id')->on('parts');
             $table->timestamps();

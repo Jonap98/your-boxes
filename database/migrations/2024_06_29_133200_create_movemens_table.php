@@ -14,7 +14,10 @@ return new class extends Migration
         Schema::create('movements', function (Blueprint $table) {
             $table->id();
             $table->double('quantity');
-            $table->double('comment')->nullable();
+            $table->string('comment', 255)->nullable();
+            $table->unsignedBigInteger('movement_type_id');
+            $table->unsignedBigInteger('part_id');
+            $table->unsignedBigInteger('user_id');
             $table->foreign('movement_type_id')->references('id')->on('movement_types');
             $table->foreign('part_id')->references('id')->on('parts');
             $table->foreign('user_id')->references('id')->on('users');

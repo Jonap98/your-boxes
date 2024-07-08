@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('parts', function (Blueprint $table) {
             $table->id();
-            $table->string('part_number');
-            $table->string('description');
-            $table->integer('um');
-            $table->boolean('active');
+            $table->string('part_number', 255);
+            $table->string('description', 255);
+            $table->string('um', 10);
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }
